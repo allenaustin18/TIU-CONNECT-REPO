@@ -7,13 +7,13 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
-text: string;
   constructor(private FB: FormBuilder) {
 
      this.LoginForm = this.FB.group({emailForm: ['', ]});
     }
-Test(){ console.log(this.LoginForm.get('emailForm').value)}
+text: string;
     LoginForm: FormGroup;
+Test() { console.log(this.LoginForm.get('emailForm').value); }
   ngOnInit() {
   }
 
