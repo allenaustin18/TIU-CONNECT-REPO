@@ -1,1 +1,12 @@
-<p>login-page works!</p>
+
+
+
+
+<form [formGroup] = "LoginForm" >
+      <input id="input" formControlName = "emailForm" type="text" size="30" pInputText> 
+ </form>    
+     
+  <p-button (click)= "Test()" label="Click" ></p-button>
+ <span id="text">{{text}}</span>
+
+      <router-outlet></router-outlet>
