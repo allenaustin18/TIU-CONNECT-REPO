@@ -1,12 +1,8 @@
+<router-outlet></router-outlet>
+<h1>Welcome to</h1>
 
+<h2>TIU Connect</h2>
 
-
-
-<form [formGroup] = "LoginForm" >
-      <input id="input" formControlName = "emailForm" type="text" size="30" pInputText> 
- </form>    
-     
-  <p-button (click)= "Test()" label="Click" ></p-button>
- <span id="text">{{text}}</span>
-
-      <router-outlet></router-outlet>
+Username: <input  [(ngModel)]="usr"><br>
+Password: <input  [(ngModel)]="pass"><br> 
+<button (click)="login()">Login</button>

@@ -1,3 +1,6 @@
+import { AuthService } from './auth/auth.service';
+import { AuthGuardService } from './auth/auth-guard.service';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {InputTextModule} from 'primeng/inputtext';
@@ -19,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CalendarPageComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     InputTextModule,
@@ -28,7 +32,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ButtonModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    AuthGuardService,
+    AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
