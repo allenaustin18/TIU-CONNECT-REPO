@@ -2,11 +2,40 @@
 
 
 
-<form [formGroup] = "LoginForm" >
-      <input id="input" formControlName = "emailForm" type="text" size="30" pInputText> 
- </form>    
-     
-  <p-button (click)= "Test()" label="Click" ></p-button>
- <span id="text">{{text}}</span>
 
-      <router-outlet></router-outlet>
+
+<body>
+     <h2>TIU-CONNECT</h2>
+     <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
+         <div class="form-group">
+             <label for="emailForm">Email</label>
+             <input type="text" formControlName="emailForm" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.emailForm.errors }" />
+             <div *ngIf="submitted && f.emailForm.errors" class="invalid-feedback">
+                 <div *ngIf="f.emailForm.errors.required">Email is required</div>
+             </div>
+         </div>
+         <div class="form-group">
+             <label for="password">Password</label>
+             <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+             <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                 <div *ngIf="f.password.errors.required">Password is required</div>
+             </div>
+         </div>
+         <!-- <div class="form-group">
+             Student : <div class="ui-g-12"><p-checkbox formControlName="checkedStudent" (click)="showSuccess()" [(ngModel)]="checked"  binary="true" ></p-checkbox></div>
+             <br>
+            Admin :  <div class="ui-g-12"><p-checkbox formControlName="checkedAdmin" (click)="showSuccess()" [(ngModel)]="checked"  ></p-checkbox></div>
+     
+     
+             <p-messages >{{msgs}}</p-messages>
+         </div> -->
+         <div class="form-group">
+             <button [disabled]="loading" class="btn btn-primary">
+                 <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                 Submit
+             </button>
+         </div>
+     
+     
+     </form>
+     </body>
